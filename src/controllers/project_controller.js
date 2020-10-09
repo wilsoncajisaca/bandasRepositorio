@@ -1,26 +1,19 @@
-const Project = require('../models/project');
 const { response } = require('express');
+const { Project } = require('../models/project');
 
-const getProjects = async(req, res = response) => {
+const createProjects = (req, res = response) => {
     //console.log(req.body);
     const { name, priority, remark, deliverydate } = req.body;
     try {
 
-        let newProject = await Project.create({
+        let newProject = Project.create({
             name,
             priority,
             remark,
             deliverydate
+        }, {
+            fields: ['name', 'priority', 'remark', 'deliverydate']
         });
-
-        // let newProject = await Project.create({
-        //     name,
-        //     priority,
-        //     remark,
-        //     deliverydate
-        // }, {
-        //     fields: ['name', 'priority', 'remark', 'deliverydate']
-        // });
 
         if (newProject) {
             return res.json({
@@ -28,11 +21,6 @@ const getProjects = async(req, res = response) => {
                 data: newProject
             });
         }
-        // res.json({
-        //     message: 'Hoooola',
-        //     data: {}
-
-        // });
     } catch (err) {
         console.log(err);
         res.status(500).json({
@@ -43,5 +31,5 @@ const getProjects = async(req, res = response) => {
 }
 
 module.exports = {
-    getProjects
+    createProjects
 }
