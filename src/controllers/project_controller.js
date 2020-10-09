@@ -1,11 +1,11 @@
 const { response } = require('express');
 const { Project } = require('../models/project');
 
-const createProjects = (req, res = response) => {
+const createProjects = async(req, res = response) => {
     //console.log(req.body);
     const { name, priority, remark, deliverydate } = req.body;
     try {
-        let newProject = Project.create({
+        let newProject = await Project.create({
             name,
             priority,
             remark,
