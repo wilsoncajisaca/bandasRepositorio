@@ -5,7 +5,6 @@ const createProjects = (req, res = response) => {
     //console.log(req.body);
     const { name, priority, remark, deliverydate } = req.body;
     try {
-
         let newProject = Project.create({
             name,
             priority,
@@ -16,6 +15,8 @@ const createProjects = (req, res = response) => {
         });
 
         if (newProject) {
+            console.log("Hooooola mundo");
+            console.log(newProject);
             return res.json({
                 message: 'Projecto creado',
                 data: newProject
