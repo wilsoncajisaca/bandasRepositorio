@@ -2,10 +2,10 @@ const Sequelize = require('sequelize');
 const { dbConnection } = require('../database/database');
 
 const Project = dbConnection.define('project', {
-    // project_id: {
-    //     type: Sequelize.INTEGER,
-    //     primaryKey: true
-    // },
+    project_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+    },
     name: {
         type: Sequelize.TEXT
     },
