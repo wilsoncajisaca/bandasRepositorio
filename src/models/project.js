@@ -15,7 +15,7 @@ const Project = dbConnection.define('project', {
     remark: {
         type: Sequelize.TEXT
     },
-    delivery_date: {
+    deliverydate: {
         type: Sequelize.DATE
     }
 }, {
