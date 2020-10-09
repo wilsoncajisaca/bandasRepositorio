@@ -21,7 +21,9 @@ const Project = dbConnection.define('project', {
 }, {
     timestamps: false
 });
-
+Project.sync().then(() => {
+    console.log('table created');
+});
 module.exports = {
     Project
 }

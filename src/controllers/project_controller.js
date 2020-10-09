@@ -5,9 +5,25 @@ const getProjects = async(req, res = response) => {
     //console.log(req.body);
     const { name, priority, remark, deliverydate } = req.body;
     try {
+        // let newProject = await Project.create({
+        //     name,
+        //     priority,
+        //     remark,
+        //     deliverydate
+        // }, {
+        //     fields: ['name', 'priority', 'remark', 'deliverydate']
+        // });
+
+        // if (newProject) {
+        //     return res.json({
+        //         message: 'Projecto creado',
+        //         data: newProject
+        //     });
+        // }
         res.json({
-            message: 'Bienvenido',
+            message: 'Hoooola',
             data: {}
+
         });
     } catch (err) {
         console.log(err);
